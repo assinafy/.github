@@ -43,6 +43,7 @@ trazem paginação, tratamento de erros tipado e verificação de assinatura de 
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — envie e acompanhe documentos pelo terminal |
 | [MCP Server](https://github.com/assinafy/mcp-server) | 11 ferramentas para 24 operações de documentos em clientes MCP (Claude, Cursor, Claude Code) |
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — nó community para automações |
+| [Activepieces](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
 | [WordPress](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
 
@@ -116,7 +117,9 @@ certificado digital. Há o equivalente para templates em
 
 **Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in eight languages
 (TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust), mobile SDKs for Android and iOS, a CLI, an MCP
-server, an n8n community node, a [WordPress plugin](https://github.com/assinafy/wordpress-plugin) and a
+server, an n8n community node, an
+[Activepieces piece](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy)
+(`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin) and a
 [LibreOffice extension](https://github.com/assinafy/libreoffice-extension).
 
 Signer identity is verified by **email OTP**, **WhatsApp OTP**, or the signer's own **ICP-Brasil A1/A3
