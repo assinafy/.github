@@ -46,6 +46,7 @@ trazem paginação, tratamento de erros tipado e verificação de assinatura de 
 | [Activepieces](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
 | [WordPress](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
+| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
 
 ## Métodos de verificação do signatário
 
@@ -119,8 +120,9 @@ certificado digital. Há o equivalente para templates em
 (TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust), mobile SDKs for Android and iOS, a CLI, an MCP
 server, an n8n community node, an
 [Activepieces piece](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy)
-(`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin) and a
-[LibreOffice extension](https://github.com/assinafy/libreoffice-extension).
+(`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin), a
+[LibreOffice extension](https://github.com/assinafy/libreoffice-extension) and a
+[Twenty CRM app](https://github.com/assinafy/twenty-crm-app) (`@assinafy/twenty-app`).
 
 Signer identity is verified by **email OTP**, **WhatsApp OTP**, or the signer's own **ICP-Brasil A1/A3
 digital certificate** via the Web PKI browser extension — the last producing a qualified PAdES
