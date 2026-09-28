@@ -44,6 +44,9 @@ trazem paginação, tratamento de erros tipado e verificação de assinatura de 
 | [MCP Server](https://github.com/assinafy/mcp-server) | 11 ferramentas para 24 operações de documentos em clientes MCP (Claude, Cursor, Claude Code) |
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — nó community para automações |
 | [Activepieces](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
+| [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Convite para o app no Zapier — gatilhos de documentos (polling e webhook), envio para assinatura, signatários, modelos, tags e download dos artefatos |
+| [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Convite para o app no Make.com — cenários de automação com a Assinafy |
+| [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
 | [WordPress](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
 | [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
@@ -118,7 +121,10 @@ certificado digital. Há o equivalente para templates em
 
 **Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in eight languages
 (TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust), mobile SDKs for Android and iOS, a CLI, an MCP
-server, an n8n community node, an
+server, an n8n community node, apps for
+[Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/),
+[Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) and
+[HubSpot](https://hubspot.assinafy.com.br/), an
 [Activepieces piece](https://github.com/assinafy/activepieces/tree/main/packages/pieces/community/assinafy)
 (`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin), a
 [LibreOffice extension](https://github.com/assinafy/libreoffice-extension) and a
