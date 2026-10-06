@@ -128,7 +128,7 @@ server, an n8n community node, apps for
 [HubSpot](https://hubspot.assinafy.com.br/), an
 [Activepieces piece](https://github.com/assinafy/activepieces)
 (`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin), a
-[LibreOffice extension](https://github.com/assinafy/libreoffice-extension) , a
+[LibreOffice extension](https://github.com/assinafy/libreoffice-extension), a
 [Pluga Webhooks + HTTP Request guide](https://github.com/assinafy/pluga-webhooks) for manual integration
 and a [Twenty CRM app](https://github.com/assinafy/twenty-crm-app) (`@assinafy/twenty-app`).
 
