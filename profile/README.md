@@ -22,7 +22,7 @@ integrations. [English version](#english).*
 | .NET | [`Assinafy.Sdk`](https://github.com/assinafy/csharp-sdk) | `dotnet add package Assinafy.Sdk` |
 | PHP | [`assinafy/php-sdk`](https://github.com/assinafy/php-sdk) | `composer require assinafy/php-sdk` |
 | Ruby | [`assinafy`](https://github.com/assinafy/ruby-sdk) | `gem 'assinafy'` |
-| Rust | [`assinafy`](https://github.com/assinafy/rust-sdk) | `assinafy = "2"` |
+| Rust | [`assinafy`](https://github.com/assinafy/rust-sdk) | `assinafy = "3"` |
 
 Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end) ou **token bearer**, e
 trazem paginação, tratamento de erros tipado e verificação de assinatura de webhook.
@@ -139,10 +139,12 @@ request origin), downloadable artifacts including the PAdES and certification-pa
 hash-based verification.
 
 Authenticate with an `X-Api-Key` header (recommended for back-ends) or a bearer JWT. A free sandbox at
-`https://sandbox.assinafy.com.br` mirrors production for end-to-end integration testing.
+`https://sandbox.assinafy.com.br` supports integration testing. The signer certificate handshake
+endpoints are available only in production.
 
 Start with the [API documentation](https://api.assinafy.com.br/v1/docs).
 
 ---
 
-Todos os SDKs e integrações oficiais são distribuídos sob a licença **MIT**.
+Os SDKs oficiais são distribuídos sob a licença **MIT**. Consulte a licença de cada integração
+no respectivo repositório; o plugin WordPress usa **GPL-2.0-or-later**.
