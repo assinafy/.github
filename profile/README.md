@@ -47,6 +47,7 @@ trazem paginação, tratamento de erros tipado e verificação de assinatura de 
 | [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Convite para o app no Zapier — gatilhos de documentos (polling e webhook), envio para assinatura, signatários, modelos, tags e download dos artefatos |
 | [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Convite para o app no Make.com — cenários de automação com a Assinafy |
 | [viaSocket](https://viasocket.com/integrations/assinafy) | Integração da Assinafy no viaSocket para fluxos de automação |
+| [Integrately](https://integrately.com/integrations/assinafy) | Integração da Assinafy no Integrately para fluxos de automação |
 | [Pluga](https://github.com/assinafy/pluga-webhooks) | Guia de integração via Pluga Webhooks + HTTP Request: eventos de assinatura, documentos, signatários e modelos — configuração manual, sem conector nativo |
 | [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
 | [WordPress](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress |
@@ -126,7 +127,8 @@ certificado digital. Há o equivalente para templates em
 server, an n8n community node, apps for
 [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/),
 [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc),
-[viaSocket](https://viasocket.com/integrations/assinafy) and
+[viaSocket](https://viasocket.com/integrations/assinafy),
+[Integrately](https://integrately.com/integrations/assinafy) and
 [HubSpot](https://hubspot.assinafy.com.br/), an
 [Activepieces piece](https://github.com/assinafy/activepieces)
 (`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin), a
