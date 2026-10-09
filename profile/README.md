@@ -1,10 +1,10 @@
 # Assinafy
 
-**Assinatura eletrônica de documentos no Brasil.** API REST, SDKs oficiais em oito linguagens e
+**Assinatura eletrônica de documentos no Brasil.** API REST, SDKs oficiais em nove linguagens e
 integrações prontas — com verificação por e-mail, WhatsApp ou certificado digital ICP-Brasil (A1/A3),
 trilha de atividades e verificação pública de documentos assinados.
 
-*Brazilian e-signature platform: REST API, official SDKs in eight languages and ready-made
+*Brazilian e-signature platform: REST API, official SDKs in nine languages and ready-made
 integrations. [English version](#english).*
 
 [Site](https://www.assinafy.com.br) · [Documentação da API](https://api.assinafy.com.br/v1/docs) · [Sandbox](https://sandbox.assinafy.com.br)
@@ -23,6 +23,7 @@ integrations. [English version](#english).*
 | PHP | [`assinafy/php-sdk`](https://github.com/assinafy/php-sdk) | `composer require assinafy/php-sdk` |
 | Ruby | [`assinafy`](https://github.com/assinafy/ruby-sdk) | `gem 'assinafy'` |
 | Rust | [`assinafy`](https://github.com/assinafy/rust-sdk) | `assinafy = "3"` |
+| Object Pascal | [`assinafy/object-pascal-sdk`](https://github.com/assinafy/object-pascal-sdk) | Clone o repositório e adicione `src` aos unit paths (Free Pascal / Lazarus) |
 
 Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end) ou **token bearer**, e
 trazem paginação, tratamento de erros tipado e verificação de assinatura de webhook.
@@ -122,8 +123,8 @@ certificado digital. Há o equivalente para templates em
 
 ## English
 
-**Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in eight languages
-(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust), mobile SDKs for Android and iOS, a CLI, an MCP
+**Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in nine languages
+(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal), mobile SDKs for Android and iOS, a CLI, an MCP
 server, an n8n community node, apps for
 [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/),
 [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc),
