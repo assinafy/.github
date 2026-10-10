@@ -25,8 +25,8 @@ integrations. [English version](#english).*
 | Rust | [`assinafy`](https://github.com/assinafy/rust-sdk) | `assinafy = "3"` |
 | Object Pascal | [`assinafy/object-pascal-sdk`](https://github.com/assinafy/object-pascal-sdk) | Clone o repositório e adicione `src` aos unit paths (Free Pascal / Lazarus) |
 
-Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end) ou **token bearer**, e
-trazem paginação, tratamento de erros tipado e verificação de assinatura de webhook.
+Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), **token bearer** ou
+**OAuth 2.1**, e trazem paginação, tratamento de erros tipado e verificação de assinatura de webhook.
 
 ## Mobile e front-end
 
@@ -42,7 +42,8 @@ trazem paginação, tratamento de erros tipado e verificação de assinatura de 
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — envie e acompanhe documentos pelo terminal |
-| [MCP Server](https://github.com/assinafy/mcp-server) | 11 ferramentas para 24 operações de documentos em clientes MCP (Claude, Cursor, Claude Code) |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 14 ferramentas para 27 operações de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code |
+| [Plugin para assistentes de IA](https://github.com/assinafy/agent-plugin) | Plugin para Claude (Claude Code, apps e Cowork), Codex e ChatGPT, e VS Code com GitHub Copilot: conecta o servidor MCP e traz uma skill com o fluxo completo de assinatura |
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — nó community para automações |
 | [Activepieces](https://github.com/assinafy/activepieces) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
 | [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Convite para o app no Zapier — gatilhos de documentos (polling e webhook), envio para assinatura, signatários, modelos, tags e download dos artefatos |
@@ -63,10 +64,13 @@ Definidos por signatário em `signers[].verification_method` ao criar o assignme
 | --- | --- | --- |
 | `Email` *(padrão)* | Código de uso único (OTP) enviado por e-mail, exigido antes de assinar | Gratuito |
 | `Whatsapp` | Código de uso único (OTP) enviado por WhatsApp | Gratuito¹ |
-| `DigitalCertificate` | O signatário assina com o **próprio certificado ICP-Brasil (A1/A3)**, do dispositivo dele, pela extensão de navegador Web PKI — produzindo uma assinatura **PAdES qualificada** no documento | 2 créditos |
+| `DigitalCertificate` | O signatário assina com o **próprio certificado ICP-Brasil (A1/A3)**, do dispositivo dele, pela extensão de navegador Web PKI — produzindo uma assinatura **PAdES qualificada** no documento | 0,5 crédito + notificação |
 
 ¹ A verificação é gratuita; a *notificação* por WhatsApp custa 0,45 crédito e está disponível apenas
 em planos pagos.
+
+Cada solicitação de assinatura usa um documento da franquia do plano; quando a franquia acaba, o
+documento extra custa 1 crédito.
 
 O método de verificação e o de notificação são **acoplados**: envie um, os dois ou nenhum — o lado
 que faltar é inferido. Sem nenhum dos dois, ambos assumem `Email`.
@@ -97,7 +101,7 @@ POST /v1/signers/certificate/complete  → data.signerName
   `original`, `certificated`, `certificate-page`, `pades` e `bundle` (zip com todos).
   O artefato `pades` — assinaturas ICP-Brasil dos signatários mais a caixa de certificação da
   plataforma — existe apenas em documentos que tiveram signatários por certificado digital.
-- **Verificação pública** — `GET /v1/{documentSignatureHash}/verify` confere um documento assinado
+- **Verificação pública** — `GET /v1/documents/{documentSignatureHash}/verify` confere um documento assinado
   pelo hash da assinatura, sem autenticação.
 
 ## Autenticação
@@ -106,9 +110,17 @@ POST /v1/signers/certificate/complete  → data.signerName
 | --- | --- | --- |
 | `apiKeyAuth` | `X-Api-Key: <chave>` | Chave permanente — recomendada para integrações de back-end |
 | `bearerAuth` | `Authorization: Bearer <jwt>` | Token de acesso obtido pelas APIs de login |
+| `oauth2` | `Authorization: Bearer <token OAuth>` | OAuth 2.1 com PKCE (S256) para apps e assistentes de IA que agem no workspace de outra pessoa, com as permissões que ela aprovou — veja o *OAuth Integration Guide* na documentação |
 | `signerAccessCode` | `?signer-access-code=<código>` | Código de uso único, para os endpoints voltados ao signatário |
 
 Produção: `https://api.assinafy.com.br` · Sandbox: `https://sandbox.assinafy.com.br`
+
+## Webhooks
+
+Cada conta registra **1 endpoint de webhook**, ou **até 3** nos planos pagos, cada um com URL, lista de
+eventos e assinatura próprias. Com `signing_enabled`, as entregas seguem o padrão
+[Standard Webhooks](https://www.standardwebhooks.com): cabeçalhos `webhook-id`, `webhook-timestamp` e
+`webhook-signature` (HMAC-SHA256 com o segredo `whsec_` do endpoint, que pode ser rotacionado).
 
 ## Estimativa de custo
 
@@ -125,7 +137,7 @@ certificado digital. Há o equivalente para templates em
 
 **Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in nine languages
 (TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal), mobile SDKs for Android and iOS, a CLI, an MCP
-server, an n8n community node, apps for
+server, an [agent plugin](https://github.com/assinafy/agent-plugin) for Claude, Codex, ChatGPT and VS Code, an n8n community node, apps for
 [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/),
 [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc),
 [viaSocket](https://viasocket.com/integrations/assinafy),
@@ -143,7 +155,9 @@ signature. Every document carries a full activity trail (each event with its pay
 request origin), downloadable artifacts including the PAdES and certification-page PDFs, and public
 hash-based verification.
 
-Authenticate with an `X-Api-Key` header (recommended for back-ends) or a bearer JWT. A free sandbox at
+Authenticate with an `X-Api-Key` header (recommended for back-ends), a bearer JWT, or OAuth 2.1 with
+PKCE for apps and AI assistants acting in another user's workspace. Webhooks support up to 3 endpoints
+on paid plans, with Standard Webhooks signatures. A free sandbox at
 `https://sandbox.assinafy.com.br` supports integration testing. The signer certificate handshake
 endpoints are available only in production.
 
