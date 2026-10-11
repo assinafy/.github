@@ -52,7 +52,7 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | [Integrately](https://integrately.com/integrations/assinafy) | Integração da Assinafy no Integrately para fluxos de automação |
 | [Pluga](https://github.com/assinafy/pluga-webhooks) | Guia de integração via Pluga Webhooks + HTTP Request: eventos de assinatura, documentos, signatários e modelos — configuração manual, sem conector nativo |
 | [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
-| [WordPress](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress |
+| [WordPress e WooCommerce](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress, [publicado no diretório oficial](https://wordpress.org/plugins/assinafy/). No WooCommerce, o pedido concluído envia o contrato do produto para assinatura do comprador e coloca o link de assinatura no e-mail do pedido |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
 | [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
 
@@ -144,7 +144,7 @@ server, an [agent plugin](https://github.com/assinafy/agent-plugin) for Claude, 
 [Integrately](https://integrately.com/integrations/assinafy) and
 [HubSpot](https://hubspot.assinafy.com.br/), an
 [Activepieces piece](https://github.com/assinafy/activepieces)
-(`@assinafy/piece-assinafy`), a [WordPress plugin](https://github.com/assinafy/wordpress-plugin), a
+(`@assinafy/piece-assinafy`), a [WordPress plugin](https://wordpress.org/plugins/assinafy/) with WooCommerce support (a completed order sends the product's contract to the buyer for signature and adds the signing link to the order email), a
 [LibreOffice extension](https://github.com/assinafy/libreoffice-extension), a
 [Pluga Webhooks + HTTP Request guide](https://github.com/assinafy/pluga-webhooks) for manual integration
 and a [Twenty CRM app](https://github.com/assinafy/twenty-crm-app) (`@assinafy/twenty-app`).
