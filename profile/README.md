@@ -37,24 +37,31 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | [Chat SDK](https://github.com/assinafy/chat-sdk) | `@assinafy/chat-sdk` — fluxo de assinatura conversacional |
 | [Webforms Java Client](https://github.com/assinafy/webforms-java-client) | `com.assinafy:webforms-java-client-sdk` |
 
-## Ferramentas e integrações
+## Ferramentas e apps
 
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — envie e acompanhe documentos pelo terminal |
 | [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 14 ferramentas para 27 operações de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code |
 | [Plugin para assistentes de IA](https://github.com/assinafy/agent-plugin) | Plugin para Claude (Claude Code, apps e Cowork), Codex e ChatGPT, e VS Code com GitHub Copilot: conecta o servidor MCP e traz uma skill com o fluxo completo de assinatura |
+| [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
+| [WordPress e WooCommerce](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress, [publicado no diretório oficial](https://wordpress.org/plugins/assinafy/). No WooCommerce, o pedido concluído envia o contrato do produto para assinatura do comprador e coloca o link de assinatura no e-mail do pedido |
+| [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
+| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
+
+## Automação (iPaaS)
+
+| | |
+| --- | --- |
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — nó community para automações |
 | [Activepieces](https://github.com/assinafy/activepieces) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
 | [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Convite para o app no Zapier — gatilhos de documentos (polling e webhook), envio para assinatura, signatários, modelos, tags e download dos artefatos |
 | [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Convite para o app no Make.com — cenários de automação com a Assinafy |
 | [viaSocket](https://viasocket.com/integrations/assinafy) | Integração da Assinafy no viaSocket para fluxos de automação |
 | [Integrately](https://integrately.com/integrations/assinafy) | Integração da Assinafy no Integrately para fluxos de automação |
+| [OttoKit](https://ottokit.com/integrations/assinafy) | Integração da Assinafy no OttoKit para fluxos de automação |
+| [FlowRunner](https://flowrunner.ai/integrations/assinafy) | Integração da Assinafy no FlowRunner para fluxos de automação |
 | [Pluga](https://github.com/assinafy/pluga-webhooks) | Guia de integração via Pluga Webhooks + HTTP Request: eventos de assinatura, documentos, signatários e modelos — configuração manual, sem conector nativo |
-| [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
-| [WordPress e WooCommerce](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress, [publicado no diretório oficial](https://wordpress.org/plugins/assinafy/). No WooCommerce, o pedido concluído envia o contrato do produto para assinatura do comprador e coloca o link de assinatura no e-mail do pedido |
-| [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
-| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
 
 ## Métodos de verificação do signatário
 
@@ -136,18 +143,33 @@ certificado digital. Há o equivalente para templates em
 ## English
 
 **Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in nine languages
-(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal), mobile SDKs for Android and iOS, a CLI, an MCP
-server, an [agent plugin](https://github.com/assinafy/agent-plugin) for Claude, Codex, ChatGPT and VS Code, an n8n community node, apps for
-[Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/),
-[Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc),
-[viaSocket](https://viasocket.com/integrations/assinafy),
-[Integrately](https://integrately.com/integrations/assinafy) and
-[HubSpot](https://hubspot.assinafy.com.br/), an
-[Activepieces piece](https://github.com/assinafy/activepieces)
-(`@assinafy/piece-assinafy`), a [WordPress plugin](https://wordpress.org/plugins/assinafy/) with WooCommerce support (a completed order sends the product's contract to the buyer for signature and adds the signing link to the order email), a
-[LibreOffice extension](https://github.com/assinafy/libreoffice-extension), a
-[Pluga Webhooks + HTTP Request guide](https://github.com/assinafy/pluga-webhooks) for manual integration
-and a [Twenty CRM app](https://github.com/assinafy/twenty-crm-app) (`@assinafy/twenty-app`).
+(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal) and mobile SDKs for Android and iOS.
+
+### Tools and apps
+
+| | |
+| --- | --- |
+| [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — send and track documents from the terminal |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 14 tools for 27 document operations, with OAuth 2.1 workspace login, in Claude, ChatGPT, Codex and VS Code |
+| [AI assistant plugin](https://github.com/assinafy/agent-plugin) | Plugin for Claude (Claude Code, apps and Cowork), Codex and ChatGPT, and VS Code with GitHub Copilot: connects the MCP server and ships a skill with the full signing flow |
+| [HubSpot](https://hubspot.assinafy.com.br/) | HubSpot app, installed by a Super Admin: send templates or PDFs from CRM records for signature by email or digital certificate (A1/A3), with the credit cost confirmed before sending and tracking on the Assinafy card on contacts, companies and deals |
+| [WordPress and WooCommerce](https://github.com/assinafy/wordpress-plugin) | WordPress plugin, [published in the official directory](https://wordpress.org/plugins/assinafy/). In WooCommerce, a completed order sends the product's contract to the buyer for signature and adds the signing link to the order email |
+| [LibreOffice](https://github.com/assinafy/libreoffice-extension) | `.oxt` extension for Writer, Calc, Impress and Draw |
+| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app for the Twenty marketplace: send attached PDFs and templates for signature with the cost shown and confirmed before sending, track signatures in Twenty (background status sync and signed PDF saved to the record), workflow action and AI chat tools |
+
+### Automation (iPaaS)
+
+| | |
+| --- | --- |
+| [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — community node for automations |
+| [Activepieces](https://github.com/assinafy/activepieces) | `@assinafy/piece-assinafy` — piece for automation flows: sending for signature, templates, signed PDF download and event triggers |
+| [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Invite to the Zapier app — document triggers (polling and webhook), sending for signature, signers, templates, tags and artifact downloads |
+| [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Invite to the Make.com app — automation scenarios with Assinafy |
+| [viaSocket](https://viasocket.com/integrations/assinafy) | Assinafy integration on viaSocket for automation flows |
+| [Integrately](https://integrately.com/integrations/assinafy) | Assinafy integration on Integrately for automation flows |
+| [OttoKit](https://ottokit.com/integrations/assinafy) | Assinafy integration on OttoKit for automation flows |
+| [FlowRunner](https://flowrunner.ai/integrations/assinafy) | Assinafy integration on FlowRunner for automation flows |
+| [Pluga](https://github.com/assinafy/pluga-webhooks) | Integration guide via Pluga Webhooks + HTTP Request: signature, document, signer and template events — manual setup, no native connector |
 
 Signer identity is verified by **email OTP**, **WhatsApp OTP**, or the signer's own **ICP-Brasil A1/A3
 digital certificate** via the Web PKI browser extension — the last producing a qualified PAdES
