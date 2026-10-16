@@ -1,10 +1,12 @@
 # Assinafy
 
 **Assinatura eletrônica de documentos no Brasil.** API REST, SDKs oficiais em nove linguagens e
-integrações prontas — com verificação por e-mail, WhatsApp ou certificado digital ICP-Brasil (A1/A3),
-trilha de atividades e verificação pública de documentos assinados.
+integrações prontas — com verificação por e-mail, WhatsApp, biometria facial com documento de identidade
+e prova de vida, ou certificado digital ICP-Brasil (A1/A3), trilha de atividades e verificação pública
+de documentos assinados.
 
-*Brazilian e-signature platform: REST API, official SDKs in nine languages and ready-made
+*Brazilian e-signature platform with facial biometrics, identity-document verification, liveness
+checks and ICP-Brasil digital certificates. REST API, official SDKs in nine languages and ready-made
 integrations. [English version](#english).*
 
 [Site](https://www.assinafy.com.br) · [Documentação da API](https://api.assinafy.com.br/v1/docs) · [Sandbox](https://sandbox.assinafy.com.br)
@@ -42,12 +44,12 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — envie e acompanhe documentos pelo terminal |
-| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 14 ferramentas para 27 operações de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 ferramentas de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code |
 | [Plugin para assistentes de IA](https://github.com/assinafy/agent-plugin) | Plugin para Claude (Claude Code, apps e Cowork), Codex e ChatGPT, e VS Code com GitHub Copilot: conecta o servidor MCP e traz uma skill com o fluxo completo de assinatura |
-| [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, instalado por um Super Admin: envio para assinatura de modelos ou PDFs dos registros do CRM, por e-mail ou certificado digital (A1/A3), com o custo em créditos confirmado antes do envio e acompanhamento no card da Assinafy em contatos, empresas e negócios |
+| [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, configurado por um Super Admin: envio de modelos ou PDFs com verificação por código ou certificado ICP-Brasil (A1/A3), convite por e-mail ou WhatsApp e custo confirmado antes do envio. Acompanhamento no card de contatos, empresas, negócios e tickets, e envio de modelos por workflows com limite de créditos |
 | [WordPress e WooCommerce](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress, [publicado no diretório oficial](https://wordpress.org/plugins/assinafy/). No WooCommerce, o pedido concluído envia o contrato do produto para assinatura do comprador e coloca o link de assinatura no e-mail do pedido |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
-| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app para o marketplace do Twenty: envio para assinatura de PDFs anexados aos registros e de modelos, com o custo exibido e confirmado antes do envio, acompanhamento das assinaturas no Twenty (sincronização de status em segundo plano e PDF assinado salvo no registro), ação de workflow e ferramentas para o chat de IA |
+| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — envio de PDFs anexados e modelos com verificação por e-mail, WhatsApp, biometria ou certificado ICP-Brasil. Custo confirmado antes do envio, status atualizado por webhooks e sincronização em segundo plano, PDFs assinados salvos no registro, ação de workflow e ferramentas para o chat de IA |
 
 ## Automação (iPaaS)
 
@@ -65,22 +67,47 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 
 ## Métodos de verificação do signatário
 
-Definidos por signatário em `signers[].verification_method` ao criar o assignment:
+Definidos por signatário em `signers[].verification_method` ao criar o assignment ou atribuir os
+papéis de um template:
 
-| Método | Como funciona | Custo por signatário |
-| --- | --- | --- |
-| `Email` *(padrão)* | Código de uso único (OTP) enviado por e-mail, exigido antes de assinar | Gratuito |
-| `Whatsapp` | Código de uso único (OTP) enviado por WhatsApp | Gratuito¹ |
-| `DigitalCertificate` | O signatário assina com o **próprio certificado ICP-Brasil (A1/A3)**, do dispositivo dele, pela extensão de navegador Web PKI — produzindo uma assinatura **PAdES qualificada** no documento | 0,5 crédito + notificação |
+| Método | Como funciona | Notificação permitida | Custo por signatário |
+| --- | --- | --- | --- |
+| `Email` *(padrão)* | Código de uso único (OTP) enviado por e-mail, exigido antes de assinar | `Email` | Gratuito |
+| `Whatsapp` | Código de uso único (OTP) enviado por WhatsApp | `Whatsapp` | 0,45 crédito pela notificação; verificação gratuita |
+| `DigitalCertificate` | O signatário assina com o **próprio certificado ICP-Brasil (A1/A3)** pela extensão Web PKI, produzindo uma assinatura **PAdES qualificada** | `Email` ou `Whatsapp` | 0,5 crédito + notificação |
+| `IdDocumentFaceMatchBasic` | Documento de identidade, foto do signatário segurando o documento, comparação facial e prova de vida em sessão hospedada | `Email` ou `Whatsapp` | Tarifa por signatário + notificação; consulte a estimativa |
 
-¹ A verificação é gratuita; a *notificação* por WhatsApp custa 0,45 crédito e está disponível apenas
-em planos pagos.
+A notificação por WhatsApp está disponível apenas em planos pagos. O custo da biometria depende
+da conta e da assinatura contratada; consulte a estimativa antes do envio.
 
 Cada solicitação de assinatura usa um documento da franquia do plano; quando a franquia acaba, o
 documento extra custa 1 crédito.
 
 O método de verificação e o de notificação são **acoplados**: envie um, os dois ou nenhum — o lado
 que faltar é inferido. Sem nenhum dos dois, ambos assumem `Email`.
+`signers[].notification_methods` aceita **exatamente um canal** por signatário, em um array com um
+elemento, conforme a tabela; combinações incompatíveis retornam `400`.
+
+### Biometria facial e documento de identidade
+
+`IdDocumentFaceMatchBasic` exige o recurso **ID Document + Face Match** habilitado na conta e um
+**CPF válido** em `government_id` do signatário. O signatário dá consentimento explícito para o
+tratamento biométrico e conclui a captura de documento, foto e prova de vida no fluxo hospedado
+pela Assinafy.
+
+Para integrar uma experiência própria, `GET /v1/signers/identity-verification` informa o estado e
+`can_start`; `POST` na mesma rota, com `{"consent": true}`, inicia a sessão e devolve a URL de
+captura. Ambas usam `signer-access-code`. Abra a URL completa, incluindo o fragmento, sem registrá-la
+em logs nem armazená-la no navegador. Inicie a sessão somente após o consentimento e quando
+`can_start` for verdadeiro.
+
+Quando a verificação fica `InReview`, o signatário pode confirmar os dados e assinar enquanto a
+conta analisa a identidade. Depois de todas as assinaturas, `pending_identity_review` indica que a
+certificação aguarda a aprovação de todas as revisões. A conta consulta a revisão em
+`GET /v1/documents/{documentId}/assignments/{assignmentId}/signers/{signerId}/identity-verification`
+e decide com `POST` na mesma rota acrescida de `/review`, usando `decision: Approved` ou `Rejected`.
+As imagens de evidência só ficam disponíveis durante a revisão. Uma rejeição cancela o documento
+e notifica signatários e destinatários de cópia.
 
 ### Certificado digital ICP-Brasil
 
@@ -89,16 +116,9 @@ que faltar é inferido. Sem nenhum dos dois, ambos assumem `Email`.
 certificado daquela pessoa (e-CPF, ou e-CNPJ que a nomeie como representante legal); um CNPJ exige um
 e-CNPJ da empresa.
 
-A assinatura em si é um handshake de dois passos com a extensão Web PKI, não um envio de campos:
-
-```
-POST /v1/signers/certificate/start     → data.token   (token da operação Web PKI)
-        ↓  o navegador assina o token com o certificado do signatário
-POST /v1/signers/certificate/complete  → data.signerName
-```
-
-> Ambas as rotas são extensões implantadas **somente em produção**: o sandbox não as expõe e elas não
-> constam do documento OpenAPI publicado.
+A assinatura é concluída no fluxo hospedado pela Assinafy, com a extensão Web PKI e o certificado
+no dispositivo do signatário. O handshake de certificado usa rotas internas, fora do contrato
+OpenAPI público; o endpoint comum de assinatura não substitui esse fluxo.
 
 ## Trilha de atividades e evidências
 
@@ -118,7 +138,7 @@ POST /v1/signers/certificate/complete  → data.signerName
 | `apiKeyAuth` | `X-Api-Key: <chave>` | Chave permanente — recomendada para integrações de back-end |
 | `bearerAuth` | `Authorization: Bearer <jwt>` | Token de acesso obtido pelas APIs de login |
 | `oauth2` | `Authorization: Bearer <token OAuth>` | OAuth 2.1 com PKCE (S256) para apps e assistentes de IA que agem no workspace de outra pessoa, com as permissões que ela aprovou — veja o *OAuth Integration Guide* na documentação |
-| `signerAccessCode` | `?signer-access-code=<código>` | Código de uso único, para os endpoints voltados ao signatário |
+| `signerAccessCode` | `?signer-access-code=<código>` | Código de acesso à sessão, para os endpoints voltados ao signatário |
 
 Produção: `https://api.assinafy.com.br` · Sandbox: `https://sandbox.assinafy.com.br`
 
@@ -129,12 +149,19 @@ eventos e assinatura próprias. Com `signing_enabled`, as entregas seguem o padr
 [Standard Webhooks](https://www.standardwebhooks.com): cabeçalhos `webhook-id`, `webhook-timestamp` e
 `webhook-signature` (HMAC-SHA256 com o segredo `whsec_` do endpoint, que pode ser rotacionado).
 
+Acompanhe a identidade com `signer_identity_verified`, `signer_identity_verification_failed`,
+`signer_identity_review_required`, `signer_identity_review_approved` e `signer_identity_review_rejected`.
+Para baixar os arquivos finais, aguarde `document_ready` e o status `certificated`; todas as
+assinaturas presentes ainda podem deixar o documento aguardando revisão de identidade.
+
 ## Estimativa de custo
 
 Antes de disparar as assinaturas, `POST /v1/documents/{id}/assignments/estimate-cost` devolve o custo
 em créditos com o detalhamento por item — documento extra, notificação por WhatsApp, assinatura por
-certificado digital. Há o equivalente para templates em
-`POST /v1/accounts/{accountId}/templates/{templateId}/documents/estimate-cost`.
+certificado digital e verificação biométrica. Há o equivalente para templates em
+`POST /v1/accounts/{accountId}/templates/{templateId}/documents/estimate-cost`. As duas estimativas
+aceitam `IdDocumentFaceMatchBasic`; a tarifa biométrica é cobrada por signatário na criação do
+assignment, além da notificação. As estimativas não reservam créditos.
 
 ---
 
@@ -150,12 +177,12 @@ certificado digital. Há o equivalente para templates em
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — send and track documents from the terminal |
-| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 14 tools for 27 document operations, with OAuth 2.1 workspace login, in Claude, ChatGPT, Codex and VS Code |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 document tools, with OAuth 2.1 workspace login, in Claude, ChatGPT, Codex and VS Code |
 | [AI assistant plugin](https://github.com/assinafy/agent-plugin) | Plugin for Claude (Claude Code, apps and Cowork), Codex and ChatGPT, and VS Code with GitHub Copilot: connects the MCP server and ships a skill with the full signing flow |
-| [HubSpot](https://hubspot.assinafy.com.br/) | HubSpot app, installed by a Super Admin: send templates or PDFs from CRM records for signature by email or digital certificate (A1/A3), with the credit cost confirmed before sending and tracking on the Assinafy card on contacts, companies and deals |
+| [HubSpot](https://hubspot.assinafy.com.br/) | HubSpot app, configured by a Super Admin: send templates or PDFs with code verification or ICP-Brasil A1/A3 certificates, email or WhatsApp invitations, and cost confirmation before sending. Track documents on contact, company, deal and ticket cards; send templates from workflows with a credit limit |
 | [WordPress and WooCommerce](https://github.com/assinafy/wordpress-plugin) | WordPress plugin, [published in the official directory](https://wordpress.org/plugins/assinafy/). In WooCommerce, a completed order sends the product's contract to the buyer for signature and adds the signing link to the order email |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | `.oxt` extension for Writer, Calc, Impress and Draw |
-| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — app for the Twenty marketplace: send attached PDFs and templates for signature with the cost shown and confirmed before sending, track signatures in Twenty (background status sync and signed PDF saved to the record), workflow action and AI chat tools |
+| [Twenty CRM](https://github.com/assinafy/twenty-crm-app) | `@assinafy/twenty-app` — send attached PDFs and templates with email, WhatsApp, biometric or ICP-Brasil certificate verification. Confirm costs before sending, track status through webhooks and background sync, save signed PDFs to the record, and use a workflow action and AI chat tools |
 
 ### Automation (iPaaS)
 
@@ -171,17 +198,49 @@ certificado digital. Há o equivalente para templates em
 | [FlowRunner](https://flowrunner.ai/integrations/assinafy) | Assinafy integration on FlowRunner for automation flows |
 | [Pluga](https://github.com/assinafy/pluga-webhooks) | Integration guide via Pluga Webhooks + HTTP Request: signature, document, signer and template events — manual setup, no native connector |
 
-Signer identity is verified by **email OTP**, **WhatsApp OTP**, or the signer's own **ICP-Brasil A1/A3
-digital certificate** via the Web PKI browser extension — the last producing a qualified PAdES
-signature. Every document carries a full activity trail (each event with its payload snapshot and
-request origin), downloadable artifacts including the PAdES and certification-page PDFs, and public
-hash-based verification.
+### Signer verification and biometrics
+
+Signer identity is verified by **email OTP**, **WhatsApp OTP**, **identity-document verification with
+facial matching and liveness**, or the signer's own **ICP-Brasil A1/A3 digital certificate** via the
+Web PKI browser extension. Digital certificates produce a qualified PAdES signature and each
+certificate signer must be alone in their signing step.
+
+Biometrics use `IdDocumentFaceMatchBasic` when assigning signers to documents or template roles.
+The account needs the **ID Document + Face Match** feature, and the signer needs a valid CPF in
+`government_id`. The signer explicitly consents to biometric processing and completes document
+photos, a photo holding the document and a liveness check in Assinafy's hosted flow.
+
+For a custom signing experience, `GET /v1/signers/identity-verification` returns the status and
+`can_start`; `POST` to the same path with `{"consent": true}` starts a session after consent. Both
+use the signer access code. Open the returned capture URL unchanged, including its fragment;
+never log it or store it in the browser. Start only when `can_start` is true.
+
+Each signer has exactly one notification channel: `Email` verification uses `Email`, `Whatsapp`
+uses `Whatsapp`, and certificates and biometrics allow either. WhatsApp notifications require a
+paid plan. Biometrics carry a per-signer fee in addition to the notification, charged when the
+assignment is created. Estimate the account's cost before sending with
+`POST /v1/documents/{id}/assignments/estimate-cost` or
+`POST /v1/accounts/{accountId}/templates/{templateId}/documents/estimate-cost`.
+
+During `InReview`, signers can continue signing while the account reviews their identity. Once
+everyone has signed, `pending_identity_review` holds certification until every review is approved.
+The account reads the review at
+`GET /v1/documents/{documentId}/assignments/{assignmentId}/signers/{signerId}/identity-verification`
+and posts `decision: Approved` or `Rejected` to the same path with `/review` appended. Evidence
+images are available only while the review is open. Rejecting a review cancels the document and
+notifies signers and copy recipients.
+
+Identity webhooks report verification success or failure and reviews required, approved or
+rejected. Wait for `document_ready` and `certificated` before downloading final files. Documents
+have an activity trail with event payloads and request origins, downloadable signed and
+certification-page PDFs, and public hash-based verification. The `pades` artifact is available
+only for documents signed with digital certificates.
 
 Authenticate with an `X-Api-Key` header (recommended for back-ends), a bearer JWT, or OAuth 2.1 with
 PKCE for apps and AI assistants acting in another user's workspace. Webhooks support up to 3 endpoints
 on paid plans, with Standard Webhooks signatures. A free sandbox at
-`https://sandbox.assinafy.com.br` supports integration testing. The signer certificate handshake
-endpoints are available only in production.
+`https://sandbox.assinafy.com.br` supports integration testing. Certificate signing is completed
+in Assinafy's hosted flow; its internal handshake is outside the public OpenAPI contract.
 
 Start with the [API documentation](https://api.assinafy.com.br/v1/docs).
 
