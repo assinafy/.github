@@ -44,8 +44,8 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — envie e acompanhe documentos pelo terminal |
-| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 ferramentas de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code |
-| [Plugin para assistentes de IA](https://github.com/assinafy/agent-plugin) | Plugin para Claude (Claude Code, apps e Cowork), Codex e ChatGPT, e VS Code com GitHub Copilot: conecta o servidor MCP e traz uma skill com o fluxo completo de assinatura |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 ferramentas de documentos, com login OAuth 2.1 no workspace, em Claude, ChatGPT, Codex e VS Code. Prévia de custo antes do envio e cartões interativos de status, revisão e posicionamento de campos no Claude e no ChatGPT |
+| [Plugin para assistentes de IA](https://github.com/assinafy/agent-plugin) | Plugin para Claude (Claude Code, apps e Cowork), Codex e ChatGPT, e VS Code com GitHub Copilot: conecta o servidor MCP e traz uma skill com o fluxo completo de assinatura. [Publicado no diretório de plugins do ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_6acbe48b99f881919f32df8e549c1efa) |
 | [HubSpot](https://hubspot.assinafy.com.br/) | App para o HubSpot, configurado por um Super Admin: envio de modelos ou PDFs com verificação por código ou certificado ICP-Brasil (A1/A3), convite por e-mail ou WhatsApp e custo confirmado antes do envio. Acompanhamento no card de contatos, empresas, negócios e tickets, e envio de modelos por workflows com limite de créditos |
 | [WordPress e WooCommerce](https://github.com/assinafy/wordpress-plugin) | Plugin para WordPress, [publicado no diretório oficial](https://wordpress.org/plugins/assinafy/). No WooCommerce, o pedido concluído envia o contrato do produto para assinatura do comprador e coloca o link de assinatura no e-mail do pedido |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | Extensão `.oxt` para Writer, Calc, Impress e Draw |
@@ -177,8 +177,8 @@ assignment, além da notificação. As estimativas não reservam créditos.
 | | |
 | --- | --- |
 | [CLI](https://github.com/assinafy/assinafy-cli) | `npm install -g @assinafy/cli` — send and track documents from the terminal |
-| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 document tools, with OAuth 2.1 workspace login, in Claude, ChatGPT, Codex and VS Code |
-| [AI assistant plugin](https://github.com/assinafy/agent-plugin) | Plugin for Claude (Claude Code, apps and Cowork), Codex and ChatGPT, and VS Code with GitHub Copilot: connects the MCP server and ships a skill with the full signing flow |
+| [MCP Server](https://github.com/assinafy/mcp-server) | `https://mcp.assinafy.com.br/mcp` — 27 document tools, with OAuth 2.1 workspace login, in Claude, ChatGPT, Codex and VS Code. Cost previews before sending, and interactive status, review and field-placement cards in Claude and ChatGPT |
+| [AI assistant plugin](https://github.com/assinafy/agent-plugin) | Plugin for Claude (Claude Code, apps and Cowork), Codex and ChatGPT, and VS Code with GitHub Copilot: connects the MCP server and ships a skill with the full signing flow. [Published in the ChatGPT plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6acbe48b99f881919f32df8e549c1efa) |
 | [HubSpot](https://hubspot.assinafy.com.br/) | HubSpot app, configured by a Super Admin: send templates or PDFs with code verification or ICP-Brasil A1/A3 certificates, email or WhatsApp invitations, and cost confirmation before sending. Track documents on contact, company, deal and ticket cards; send templates from workflows with a credit limit |
 | [WordPress and WooCommerce](https://github.com/assinafy/wordpress-plugin) | WordPress plugin, [published in the official directory](https://wordpress.org/plugins/assinafy/). In WooCommerce, a completed order sends the product's contract to the buyer for signature and adds the signing link to the order email |
 | [LibreOffice](https://github.com/assinafy/libreoffice-extension) | `.oxt` extension for Writer, Calc, Impress and Draw |
