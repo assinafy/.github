@@ -151,6 +151,9 @@ eventos e assinatura próprias. Com `signing_enabled`, as entregas seguem o padr
 
 Acompanhe a identidade com `signer_identity_verified`, `signer_identity_verification_failed`,
 `signer_identity_review_required`, `signer_identity_review_approved` e `signer_identity_review_rejected`.
+O ciclo de vida dos contratos emite `document_contract_updated`, `document_contract_renewal_notice`,
+`document_contract_expiring`, `document_contract_expired`, `document_contract_renewed`,
+`document_contract_terminated`, `document_contract_amended` e `document_contract_amendment_updated`.
 Para baixar os arquivos finais, aguarde `document_ready` e o status `certificated`; todas as
 assinaturas presentes ainda podem deixar o documento aguardando revisão de identidade.
 
@@ -162,6 +165,24 @@ certificado digital e verificação biométrica. Há o equivalente para template
 `POST /v1/accounts/{accountId}/templates/{templateId}/documents/estimate-cost`. As duas estimativas
 aceitam `IdDocumentFaceMatchBasic`; a tarifa biométrica é cobrada por signatário na criação do
 assignment, além da notificação. As estimativas não reservam créditos.
+
+## Gestão de contratos (CLM)
+
+O app Assinafy, a API REST e os nove SDKs oficiais permitem acompanhar os termos comerciais de
+documentos novos ou existentes, sem mudar seu fluxo de envio ou assinatura:
+
+- Registre contraparte e CPF/CNPJ, valor e moeda, vigência, responsável, renovação, metadados e
+  referências externas; consulte a carteira com filtros de status, contraparte e vencimento.
+- Vincule aditivos, renovações e encerramentos ao contrato raiz. As mudanças de documentos assinados
+  são aplicadas após a certificação, na ordem das assinaturas; também é possível renovar manual ou
+  automaticamente e encerrar com um motivo.
+- Receba e-mails e webhooks de aviso de renovação, proximidade do vencimento (45 e 30 dias), vencimento
+  e renovação. As mudanças ficam registradas na trilha de atividades.
+
+A API e os SDKs cobrem seis operações: listar, ler e gravar termos, consultar instrumentos relacionados,
+renovar e encerrar. Escritas exigem um plano com **Gestão de Contratos** e, via OAuth,
+`documents:write`; leituras usam `documents:read` e continuam disponíveis se o plano deixar de incluir
+o recurso.
 
 ---
 
@@ -241,6 +262,23 @@ PKCE for apps and AI assistants acting in another user's workspace. Webhooks sup
 on paid plans, with Standard Webhooks signatures. A free sandbox at
 `https://sandbox.assinafy.com.br` supports integration testing. Certificate signing is completed
 in Assinafy's hosted flow; its internal handshake is outside the public OpenAPI contract.
+
+### Contract lifecycle management (CLM)
+
+The Assinafy app, REST API and all nine official SDKs can track commercial terms on new or existing
+documents without changing their signing flow:
+
+- Record the counterparty and CPF/CNPJ, value and currency, term dates, owner, renewal settings,
+  metadata and external references; filter the portfolio by status, counterparty and expiration date.
+- Link amendments, renewals and terminations to the root contract. Changes from signed documents apply
+  after certification, in signing order; contracts can also be renewed manually or automatically and
+  terminated with a reason.
+- Receive owner emails and webhooks for renewal notices, expiration warnings at 45 and 30 days,
+  expiration and renewal. Changes are recorded in the document's activity trail.
+
+The API and SDKs cover six operations: list, read and set terms, read related instruments, renew and
+terminate. Writes require a plan with contract management and, through OAuth, `documents:write`; reads
+use `documents:read` and remain available if the plan no longer includes the feature.
 
 Start with the [API documentation](https://api.assinafy.com.br/v1/docs).
 
