@@ -1,13 +1,13 @@
 # Assinafy
 
-**Assinatura eletrônica de documentos no Brasil.** API REST, SDKs oficiais em nove linguagens e
-integrações prontas — com verificação por e-mail, WhatsApp, biometria facial com documento de identidade
-e prova de vida, ou certificado digital ICP-Brasil (A1/A3), trilha de atividades e verificação pública
-de documentos assinados.
+**Assinatura eletrônica de documentos no Brasil.** API REST, SDKs oficiais em nove linguagens,
+assinatura incorporada no seu próprio app e integrações prontas — com verificação por e-mail, WhatsApp,
+biometria facial com documento de identidade e prova de vida, ou certificado digital ICP-Brasil (A1/A3),
+trilha de atividades e verificação pública de documentos assinados.
 
 *Brazilian e-signature platform with facial biometrics, identity-document verification, liveness
-checks and ICP-Brasil digital certificates. REST API, official SDKs in nine languages and ready-made
-integrations. [English version](#english).*
+checks and ICP-Brasil digital certificates. REST API, official SDKs in nine languages, embedded signing
+inside your own app and ready-made integrations. [English version](#english).*
 
 [Site](https://www.assinafy.com.br) · [Documentação da API](https://api.assinafy.com.br/v1/docs) · [Sandbox](https://sandbox.assinafy.com.br)
 
@@ -36,8 +36,9 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | --- | --- |
 | [Android SDK](https://github.com/assinafy/mobile-android-sdk) | `com.assinafy:assinafy-android-sdk` |
 | [iOS SDK](https://github.com/assinafy/mobile-ios-sdk) | Swift Package Manager |
+| [Embed SDK](https://github.com/assinafy/embed-sdk) | `@assinafy/embed-sdk` — assinatura incorporada: o signatário assina em um iframe dentro do seu app, com eventos tipados, em React, Next.js, Vue, Angular ou HTML puro |
 | [Chat SDK](https://github.com/assinafy/chat-sdk) | `@assinafy/chat-sdk` — fluxo de assinatura conversacional |
-| [Webforms Java Client](https://github.com/assinafy/webforms-java-client) | `com.assinafy:webforms-java-client-sdk` |
+| [Webforms Java Client](https://github.com/assinafy/webforms-java-client) | `com.assinafy:webforms-java-client-sdk` — legado, mantido para compatibilidade; para novas integrações, use o [Java SDK](https://github.com/assinafy/java-sdk) |
 
 ## Ferramentas e apps
 
@@ -121,6 +122,19 @@ A assinatura é concluída no fluxo hospedado pela Assinafy, com a extensão Web
 no dispositivo do signatário. O handshake de certificado usa rotas internas, fora do contrato
 OpenAPI público; o endpoint comum de assinatura não substitui esse fluxo.
 
+## Assinatura incorporada no seu app
+
+Com o recurso **Embed** no plano, o signatário assina dentro do seu produto, em um iframe, sem sair
+do seu app. Registre as origens do seu site em `POST /v1/accounts/{accountId}/embed-origins`, marque
+o signatário com `"embedded": true` no assignment e, a cada exibição, gere no back-end uma sessão de
+uso único, válida por 5 minutos, em
+`POST /v1/documents/{documentId}/assignments/{assignmentId}/signers/{signerId}/embed-sessions`.
+O signatário incorporado se verifica com o código enviado por e-mail ou WhatsApp.
+
+O [Embed SDK](https://github.com/assinafy/embed-sdk) (`@assinafy/embed-sdk`, pelo npm ou por CDN)
+monta o iframe, confere a origem das mensagens e entrega os eventos `ready`, `signed`, `declined` e
+`error`. Confirme o resultado por webhook antes de liberar qualquer coisa no seu sistema.
+
 ## Trilha de atividades e evidências
 
 - **`GET /v1/documents/{id}/activities`** — todos os eventos registrados do documento, cada um com um
@@ -192,7 +206,17 @@ o recurso.
 ## English
 
 **Assinafy is a Brazilian e-signature platform.** A REST API, official SDKs in nine languages
-(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal) and mobile SDKs for Android and iOS.
+(TypeScript, Python, Go, Java, .NET, PHP, Ruby, Rust, Object Pascal), mobile SDKs for Android and iOS,
+and a browser SDK for embedded signing.
+
+### Mobile and front-end
+
+| | |
+| --- | --- |
+| [Android SDK](https://github.com/assinafy/mobile-android-sdk) | `com.assinafy:assinafy-android-sdk` |
+| [iOS SDK](https://github.com/assinafy/mobile-ios-sdk) | Swift Package Manager |
+| [Embed SDK](https://github.com/assinafy/embed-sdk) | `@assinafy/embed-sdk` — embedded signing: signers sign in an iframe inside your app, with typed events, in React, Next.js, Vue, Angular or plain HTML |
+| [Chat SDK](https://github.com/assinafy/chat-sdk) | `@assinafy/chat-sdk` — conversational signing flow |
 
 ### Tools and apps
 
@@ -264,6 +288,19 @@ PKCE for apps and AI assistants acting in another user's workspace. Webhooks sup
 on paid plans, with Standard Webhooks signatures. A free sandbox at
 `https://sandbox.assinafy.com.br` supports integration testing. Certificate signing is completed
 in Assinafy's hosted flow; its internal handshake is outside the public OpenAPI contract.
+
+### Embedded signing
+
+With the **Embed** feature on the plan, signers sign inside your product, in an iframe, without
+leaving your app. Register your site's origins with `POST /v1/accounts/{accountId}/embed-origins`,
+mark the signer with `"embedded": true` on the assignment, and create a one-use session, valid for
+5 minutes, from your back-end every time you show the frame:
+`POST /v1/documents/{documentId}/assignments/{assignmentId}/signers/{signerId}/embed-sessions`.
+Embedded signers verify with the code sent by email or WhatsApp.
+
+The [Embed SDK](https://github.com/assinafy/embed-sdk) (`@assinafy/embed-sdk`, on npm or a CDN)
+mounts the iframe, checks where messages come from and delivers `ready`, `signed`, `declined` and
+`error` events. Confirm the outcome by webhook before unlocking anything in your system.
 
 ### Contract lifecycle management (CLM)
 
