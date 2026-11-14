@@ -60,7 +60,7 @@ Todos autenticam por **chave de API** (`X-Api-Key`, recomendado para back-end), 
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — nó community para automações |
 | [Activepieces](https://github.com/assinafy/activepieces) | `@assinafy/piece-assinafy` — peça para fluxos de automação: envio para assinatura, modelos, download do PDF assinado e gatilhos de eventos |
 | [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Convite para o app no Zapier — gatilhos de documentos (polling e webhook), envio para assinatura, signatários, modelos, tags e download dos artefatos |
-| [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Convite para o app no Make.com — cenários de automação com a Assinafy |
+| [Make](https://www.make.com/integrations/assinafy) | Convite para o app no Make.com — cenários de automação com a Assinafy |
 | [viaSocket](https://viasocket.com/integrations/assinafy) | Integração da Assinafy no viaSocket para fluxos de automação |
 | [Integrately](https://integrately.com/integrations/assinafy) | Integração da Assinafy no Integrately para fluxos de automação |
 | [OttoKit](https://ottokit.com/integrations/assinafy) | Integração da Assinafy no OttoKit para fluxos de automação |
@@ -238,7 +238,7 @@ and a browser SDK for embedded signing.
 | [n8n](https://github.com/assinafy/n8n-nodes-assinafy) | `@assinafy/n8n-nodes-assinafy` — community node for automations |
 | [Activepieces](https://github.com/assinafy/activepieces) | `@assinafy/piece-assinafy` — piece for automation flows: sending for signature, templates, signed PDF download and event triggers |
 | [Zapier](https://zapier.com/developer/public-invite/242555/06c5413fab63d00faf00e0063347cd51/) | Invite to the Zapier app — document triggers (polling and webhook), sending for signature, signers, templates, tags and artifact downloads |
-| [Make](https://www.make.com/en/hq/app-invitation/86d76b80a1f6819b60cadeeb01895adc) | Invite to the Make.com app — automation scenarios with Assinafy |
+| [Make](https://www.make.com/integrations/assinafy) | Invite to the Make.com app — automation scenarios with Assinafy |
 | [viaSocket](https://viasocket.com/integrations/assinafy) | Assinafy integration on viaSocket for automation flows |
 | [Integrately](https://integrately.com/integrations/assinafy) | Assinafy integration on Integrately for automation flows |
 | [OttoKit](https://ottokit.com/integrations/assinafy) | Assinafy integration on OttoKit for automation flows |
